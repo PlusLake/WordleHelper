@@ -1,11 +1,11 @@
 (() => {
     const $ = query => document.querySelector(query);
     const repository = "https://raw.githubusercontent.com/PlusLibrary/WordleHelper/master";
-    fetch(`${repository}/user_interface.js`)
+    fetch(`${repository}/user_interface.js?timestamp=${Date.now()}`)
         .then(response => response.text())
         .then(script => {
             eval(script);
-            return fetch(`${repository}/words.txt`)
+            return fetch(`${repository}/words.txt?timestamp=${Date.now()}`)
         })
         .then(response => response.text())
         .then(words => main(words.split("\n")));
