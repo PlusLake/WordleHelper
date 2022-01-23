@@ -32,16 +32,17 @@
     });
     const lineInner = createElement("div", {}, {
         "border-top": "1px solid #DDD",
-        "width": "250px",
+        "width": "265px",
         "display": "inline-block",
     });
     const content = createElement("div", {}, {
-        "padding": "8px 32px",
+        "padding": "8px 28px",
         "font-weight": 700,
     });
     const guesses = createElement("div", { "id": "guesses" }, {
-        "padding": "8px 16px",
+        "padding": "8px 8px",
         "font-weight": "normal",
+        "font-family": "monospace",
     });
     content.innerText = "Possible guesses:";
     content.appendChild(guesses);
