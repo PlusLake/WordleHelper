@@ -12,8 +12,7 @@
 
     const getStatus = () => [...document.querySelector("game-app").shadowRoot.querySelector("#board").children]
         .map(row => row.shadowRoot.querySelectorAll("game-tile"))
-        .map(row => [...row].map(value => ({ "letter": value._letter, "state": value._state })))
-        .filter(row => row[0].letter != "");
+        .map(row => [...row].map(value => ({ "letter": value._letter, "state": value._state })));
 
     const guess = (status, words) => {
         const flattened = status.flat();
@@ -32,6 +31,6 @@
     const main = (words) => {
         const current = getStatus();
         const result = guess(current, words);
-        $("#guesses").innerHTML = result.join("<br>");
+        $("#guesses").innerHTML = result.join(", ");
     };
 })();

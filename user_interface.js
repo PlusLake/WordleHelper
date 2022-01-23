@@ -40,7 +40,7 @@
         "font-weight": 700,
     });
     const guesses = createElement("div", { "id": "guesses" }, {
-        "padding": "8px 48px",
+        "padding": "8px 16px",
         "font-weight": "normal",
     });
     content.innerText = "Possible guesses:";
