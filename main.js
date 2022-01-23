@@ -31,9 +31,7 @@
 
     const main = (words) => {
         const current = getStatus();
-        console.log(current);
         const result = guess(current, words);
-        $("#guesses").innerText = result;
-        console.log(result);
+        $("#guesses").innerHTML = result.join("<br>");
     };
 })();

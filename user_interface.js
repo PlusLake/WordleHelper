@@ -41,6 +41,7 @@
     });
     const guesses = createElement("div", { "id": "guesses" }, {
         "padding": "8px 48px",
+        "font-weight": "normal",
     });
     content.innerText = "Possible guesses:";
     content.appendChild(guesses);
