@@ -37,8 +37,13 @@
     });
     const content = createElement("div", {}, {
         "padding": "8px 32px",
+        "font-weight": 700,
+    });
+    const guesses = createElement("div", { "id": "guesses" }, {
+        "padding": "8px 48px",
     });
     content.innerText = "Possible guesses:";
+    content.appendChild(guesses);
     line.appendChild(lineInner);
     title.innerText = "Wordle Helper";
     helper.appendChild(title);
