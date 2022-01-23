@@ -12,7 +12,7 @@
         setStyle(element, styles);
         return element;
     };
-    $("#helper").remove();
+    $("#helper")?.remove();
     const helper = createElement("div", { "id": "helper" }, {
         "backgroundColor": "#F7F7F7",
         "width": "300px",
