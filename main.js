@@ -29,8 +29,10 @@
     };
 
     const main = (words) => {
-        const current = getStatus();
-        const result = guess(current, words);
-        $("#guesses").innerHTML = result.join(" ");
+        $("#helper-reload").addEventListener("click", event => {
+            const current = getStatus();
+            const result = guess(current, words);
+            $("#guesses").innerHTML = result.join(" ");
+        });
     };
 })();
