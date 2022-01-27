@@ -6,12 +6,15 @@ It won't directly find out the answer, but provide a list of possible answer.
 ## How to use
 
 Execute the JavaScript below.
+Click the reload button to find possible answers.
 
 ```javascript
 fetch("https://raw.githubusercontent.com/PlusLibrary/WordleHelper/master/main.js")
     .then(response => response.text())
     .then(script => eval(script));
 ```
+
+![](/sample.gif)
 
 ## About the dictionary
 
