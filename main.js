@@ -24,7 +24,6 @@
             .map(list => list.map(value => value.state == "correct" ? value.letter : null))
             .reduce((previous, current) => previous.map((letter, index) => letter ?? current[index]));
         const regexp = new RegExp(fixed.map(letter => letter ?? `[^${exclude.join("")}]`).join(""));
-        console.log(include);
         return words
             .filter(word => word.match(regexp))
             .filter(word => include.every(letter => word.includes(letter)));
