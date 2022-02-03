@@ -12,12 +12,14 @@
 
     const getStatus = () => [...document.querySelector("game-app").shadowRoot.querySelector("#board").children]
         .map(row => row.shadowRoot.querySelectorAll("game-tile"))
-        .map(row => [...row].map(value => ({ "letter": value._letter, "state": value._state })));
+        .map(row => [...row].map(value => ({ "letter": value._letter, "state": value._state })))
+        .filter(row => row.some(value => value.letter));
 
     const guess = (status, words) => {
         const flattened = status.flat();
-        const exclude = [...new Set(flattened.filter(value => value.state == "absent").map(value => value.letter))];
         const include = [...new Set(flattened.filter(value => value.state == "present").map(value => value.letter))];
+        const exclude = [...new Set(flattened.filter(value => value.state == "absent").map(value => value.letter))]
+            .filter(letter => !include.includes(letter));
         const fixed = status
             .map(list => list.map(value => value.state == "correct" ? value.letter : null))
             .reduce((previous, current) => previous.map((letter, index) => letter ?? current[index]));
@@ -29,10 +31,13 @@
     };
 
     const main = (words) => {
-        $("#helper-reload").addEventListener("click", event => {
+        let currentRowCount = getStatus().length;
+        setInterval(() => {
             const current = getStatus();
+            if (current.length == currentRowCount)
+                return;
             const result = guess(current, words);
             $("#guesses").innerHTML = result.join(" ");
-        });
+        }, 1000);
     };
 })();
