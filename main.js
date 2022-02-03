@@ -22,7 +22,7 @@
             .filter(letter => !include.includes(letter));
         const fixed = status
             .map(list => list.map(value => value.state == "correct" ? value.letter : null))
-            .reduce((previous, current) => previous.map((letter, index) => letter ?? current[index]));
+            .reduce((previous, current) => previous.map((letter, index) => letter ?? current[index]), []);
         const regexp = new RegExp(fixed.map(letter => letter ?? `[^${exclude.join("")}]`).join(""));
         return words
             .filter(word => word.match(regexp))
