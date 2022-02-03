@@ -30,10 +30,10 @@
     };
 
     const main = (words) => {
-        let currentRowCount = -1;
+        let currentRowCount = getStatus();
         setInterval(() => {
             const current = getStatus();
-            if (current.length == currentRowCount)
+            if (current.length == currentRowCount && currentRowCount == 0)
                 return;
             const result = guess(current, words);
             $("#guesses").innerHTML = result.join(" ");
