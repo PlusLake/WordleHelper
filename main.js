@@ -13,7 +13,7 @@
     const getStatus = () => [...document.querySelector("game-app").shadowRoot.querySelector("#board").children]
         .map(row => row.shadowRoot.querySelectorAll("game-tile"))
         .map(row => [...row].map(value => ({ "letter": value._letter, "state": value._state })))
-        .filter(row => row.some(value => value.letter));
+        .filter(row => row.some(value => value.letter && value.letter != "tbd"));
 
     const guess = (status, words) => {
         const flattened = status.flat();
@@ -30,7 +30,7 @@
     };
 
     const main = (words) => {
-        let currentRowCount = getStatus().length;
+        let currentRowCount = -1;
         setInterval(() => {
             const current = getStatus();
             if (current.length == currentRowCount)
